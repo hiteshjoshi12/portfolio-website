@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, Transition } from "framer-motion";
 
 export default function Hero() {
   // We define a standard transition to keep the easing consistent
-  const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] };
+  const transition: Transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] };
 
   return (
     <section className="pt-32 pb-20 px-6 max-w-6xl mx-auto flex flex-col items-center text-center md:items-start md:text-left">

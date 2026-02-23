@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Transition } from "framer-motion"; 
 import Link from "next/link";
 
 export default function About() {
-  const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] };
+  const transition: Transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] };
 
   return (
     <main className="min-h-screen bg-white pt-32 pb-24 px-6">

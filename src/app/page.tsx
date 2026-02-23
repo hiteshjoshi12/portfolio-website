@@ -7,6 +7,7 @@ import FAQ from "@/components/FAQ"; // Import the FAQ
 import Contact from "@/components/Contact";
 import Testimonials from "@/components/Testimonials";
 
+
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col">
