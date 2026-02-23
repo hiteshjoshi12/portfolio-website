@@ -85,7 +85,7 @@ export default function Projects() {
               {/* Image Container */}
               <div className="w-full md:w-3/5 bg-slate-100 rounded-2xl border border-slate-200 shadow-sm overflow-hidden group">
                 <img 
-                  src={project.img} 
+                  src={`/portfolio-website${project.img}`}
                   alt={project.title} 
                   className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.02]" 
                 />
