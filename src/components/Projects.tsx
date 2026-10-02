@@ -120,38 +120,25 @@ export default function Projects() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.1 }}
             key={proj.id}
-            className="sticky overflow-hidden rounded-[2rem] bg-white shadow-2xl shadow-slate-900/10 border border-slate-200 flex flex-col lg:flex-row group"
-            style={{ 
-              top: `calc(100px + ${idx * 20}px)`, 
-              zIndex: idx 
+            className="lg:sticky lg:h-[calc(100vh-160px)] overflow-hidden rounded-[2rem] bg-white shadow-2xl shadow-slate-900/10 border border-slate-200 flex flex-col lg:flex-row group"
+            style={{
+              top: `calc(100px + ${idx * 20}px)`,
+              zIndex: idx
             }}
           >
             {/* Image Section (Top on mobile, Left on desktop) */}
-            <div className="lg:w-1/2 p-6 sm:p-10 lg:p-14 bg-slate-50 flex items-center justify-center relative overflow-hidden">
+            <div className="lg:w-1/2 p-4 sm:p-6 lg:p-8 bg-slate-50 flex items-center justify-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
               <img
                 src={proj.img}
                 alt={proj.title}
-                className="w-full h-auto object-cover rounded-xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] ring-1 ring-slate-900/5 transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-auto lg:h-full object-contain rounded-xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] ring-1 ring-slate-900/5 transition-transform duration-700 group-hover:scale-105"
               />
-              
-              {/* Floating Badge */}
-              <div
-                className="absolute top-4 right-4 z-20 pointer-events-none"
-              >
-                <div className="px-3 py-1.5 rounded-full bg-slate-900/85 backdrop-blur-xl border border-white/20 text-white text-[10px] sm:text-[11px] font-semibold flex items-center gap-2 shadow-lg">
-                  <span className="relative flex h-1.5 w-1.5 sm:h-2 sm:w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2 sm:w-2 bg-emerald-500" />
-                  </span>
-                  <span>Production Live</span>
-                </div>
-              </div>
             </div>
 
             {/* Content Section (Bottom on mobile, Right on desktop) */}
-            <div className="lg:w-1/2 p-6 sm:p-10 lg:p-14 flex flex-col justify-center bg-white">
-              <div className="flex items-center gap-3 mb-6">
+            <div className="lg:w-1/2 p-6 sm:p-10 lg:p-14 flex flex-col justify-center bg-white lg:overflow-y-auto no-scrollbar">
+              <div className="flex items-center gap-3">
                 <span className="text-[10px] sm:text-xs font-mono font-bold px-3 py-1 rounded-full bg-rose-50 text-rose-600 border border-rose-200">
                   {proj.category}
                 </span>
@@ -163,22 +150,22 @@ export default function Projects() {
               <h3 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight mb-2">
                 {proj.title}
               </h3>
-              <p className="text-xs sm:text-sm font-semibold text-rose-500 tracking-wide uppercase mb-6 line-clamp-2">
+              <p className="text-xs sm:text-sm font-semibold text-rose-500 tracking-wide uppercase">
                 {proj.tagline}
               </p>
 
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal mb-8">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                 {proj.description}
               </p>
 
               {/* Metrics block */}
-              <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 text-xs font-medium text-slate-700 mb-8 w-full">
+              <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 text-xs font-medium text-slate-700 w-full">
                 <Activity className="w-4 h-4 text-orange-500 shrink-0" />
                 <span className="font-semibold text-slate-900 leading-relaxed">{proj.metrics}</span>
               </div>
 
               {/* Technologies */}
-              <div className="mb-10">
+              <div className="mb-2">
                 <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-3 block">
                   Core Technologies Deployed
                 </span>
