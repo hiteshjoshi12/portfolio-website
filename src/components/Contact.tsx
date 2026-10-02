@@ -115,7 +115,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-28 px-6 relative z-10 border-t border-slate-200/50 bg-gradient-to-b from-transparent via-slate-100/40 to-white">
+    <section id="contact" data-section="contact" className="py-28 px-6 relative z-10 border-t border-slate-200/50 bg-gradient-to-b from-transparent via-slate-100/40 to-white">
       {/* Decorative ambient lighting */}
       <div className="absolute top-1/3 left-10 w-96 h-96 bg-rose-200/20 blur-[130px] rounded-full pointer-events-none -z-10" />
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-amber-200/20 blur-[130px] rounded-full pointer-events-none -z-10" />

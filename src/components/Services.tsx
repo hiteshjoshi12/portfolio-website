@@ -15,6 +15,7 @@ import {
   Terminal,
   Activity
 } from "lucide-react";
+import { scrollToSection } from "@/utils/navigation";
 
 interface ServiceItem {
   id: string;
@@ -177,13 +178,14 @@ function ServiceCard({ service, index }: { service: ServiceItem; index: number }
           className="pt-4 border-t border-slate-100 flex items-center justify-between"
           style={{ transform: "translateZ(20px)" }}
         >
-          <a
-            href="#contact"
-            className="text-xs font-bold text-slate-900 hover:text-rose-600 flex items-center gap-1.5 transition-colors group/btn"
+          <button
+            type="button"
+            onClick={() => scrollToSection("contact")}
+            className="text-xs font-bold text-slate-900 hover:text-rose-600 flex items-center gap-1.5 transition-colors group/btn cursor-pointer"
           >
             <span>Initiate Project Scope</span>
             <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover/btn:text-rose-600 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-all" />
-          </a>
+          </button>
           <span className="text-[10px] font-mono text-slate-400">Available</span>
         </div>
 
@@ -194,7 +196,7 @@ function ServiceCard({ service, index }: { service: ServiceItem; index: number }
 
 export default function Services() {
   return (
-    <section id="services" className="relative py-28 px-6 max-w-6xl mx-auto overflow-hidden">
+    <section id="services" data-section="services" className="relative py-28 px-6 max-w-6xl mx-auto overflow-hidden">
       
       {/* Background Ambient Glow */}
       <div className="absolute top-1/3 left-0 w-[550px] h-[380px] bg-gradient-to-tr from-rose-400/10 via-orange-400/10 to-transparent blur-3xl rounded-full pointer-events-none -z-10" />

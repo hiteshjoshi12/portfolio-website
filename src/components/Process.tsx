@@ -14,6 +14,7 @@ import {
   ShieldCheck,
   Activity
 } from "lucide-react";
+import { scrollToSection } from "@/utils/navigation";
 
 interface StepItem {
   id: string;
@@ -214,7 +215,7 @@ export default function Process() {
   const [selectedStep, setSelectedStep] = useState(0);
 
   return (
-    <section id="process" className="relative py-28 px-6 max-w-6xl mx-auto overflow-hidden">
+    <section id="process" data-section="process" className="relative py-28 px-6 max-w-6xl mx-auto overflow-hidden">
       
       {/* Background Soft Glow */}
       <div className="absolute top-1/2 right-1/4 w-[600px] h-[350px] bg-gradient-to-tr from-rose-400/10 via-orange-400/10 to-amber-300/10 blur-3xl rounded-full pointer-events-none -z-10" />
@@ -294,12 +295,13 @@ export default function Process() {
           </div>
         </div>
 
-        <a
-          href="#contact"
-          className="px-6 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs transition-all shadow-md shrink-0"
+        <button
+          type="button"
+          onClick={() => scrollToSection("contact")}
+          className="px-6 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs transition-all shadow-md shrink-0 cursor-pointer"
         >
           Schedule Discovery Call →
-        </a>
+        </button>
       </motion.div>
 
     </section>

@@ -7,6 +7,7 @@ import {
   ArrowUpRight,
   Heart
 } from "lucide-react";
+import { scrollToSection } from "@/utils/navigation";
 
 // Clean brand SVGs since Lucide does not export Github/Linkedin/Instagram
 function GithubIcon({ className = "w-4 h-4" }: { className?: string }) {
@@ -77,13 +78,14 @@ export default function Footer() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto">
-              <a
-                href="#contact"
-                className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-rose-500 via-orange-500 to-amber-500 hover:from-rose-600 hover:via-orange-600 hover:to-amber-600 text-white font-bold text-sm tracking-wide shadow-xl shadow-rose-500/25 transition-all duration-300 flex items-center justify-center gap-2.5 group"
+              <button
+                type="button"
+                onClick={() => scrollToSection("contact")}
+                className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-rose-500 via-orange-500 to-amber-500 hover:from-rose-600 hover:via-orange-600 hover:to-amber-600 text-white font-bold text-sm tracking-wide shadow-xl shadow-rose-500/25 transition-all duration-300 flex items-center justify-center gap-2.5 group cursor-pointer"
               >
                 <span>Book Engineering Sprint</span>
                 <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </a>
+              </button>
 
               <a
                 href="mailto:joshihitesh940@gmail.com"
@@ -128,34 +130,54 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5 text-sm font-medium text-slate-600">
               <li>
-                <a href="#projects" className="hover:text-rose-500 transition-colors flex items-center justify-between group">
+                <button 
+                  type="button"
+                  onClick={() => scrollToSection("projects")} 
+                  className="w-full hover:text-rose-500 transition-colors flex items-center justify-between group cursor-pointer text-left"
+                >
                   <span>Selected Works</span>
                   <span className="text-[11px] font-mono text-slate-400 group-hover:text-rose-500">04</span>
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#services" className="hover:text-rose-500 transition-colors flex items-center justify-between group">
+                <button 
+                  type="button"
+                  onClick={() => scrollToSection("services")} 
+                  className="w-full hover:text-rose-500 transition-colors flex items-center justify-between group cursor-pointer text-left"
+                >
                   <span>Core Services</span>
                   <span className="text-[11px] font-mono text-slate-400 group-hover:text-rose-500">03</span>
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#process" className="hover:text-rose-500 transition-colors flex items-center justify-between group">
+                <button 
+                  type="button"
+                  onClick={() => scrollToSection("process")} 
+                  className="w-full hover:text-rose-500 transition-colors flex items-center justify-between group cursor-pointer text-left"
+                >
                   <span>Sprint Process</span>
                   <span className="text-[11px] font-mono text-slate-400 group-hover:text-rose-500">4-Wks</span>
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#testimonials" className="hover:text-rose-500 transition-colors flex items-center justify-between group">
+                <button 
+                  type="button"
+                  onClick={() => scrollToSection("testimonials")} 
+                  className="w-full hover:text-rose-500 transition-colors flex items-center justify-between group cursor-pointer text-left"
+                >
                   <span>Client Proof</span>
                   <span className="text-[11px] font-mono text-slate-400 group-hover:text-rose-500">5.0 ★</span>
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#faq" className="hover:text-rose-500 transition-colors flex items-center justify-between group">
+                <button 
+                  type="button"
+                  onClick={() => scrollToSection("faq")} 
+                  className="w-full hover:text-rose-500 transition-colors flex items-center justify-between group cursor-pointer text-left"
+                >
                   <span>Knowledge FAQ</span>
                   <span className="text-[11px] font-mono text-slate-400 group-hover:text-rose-500">Q&A</span>
-                </a>
+                </button>
               </li>
             </ul>
           </div>

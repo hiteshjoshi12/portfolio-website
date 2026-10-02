@@ -16,6 +16,7 @@ import {
   Cpu,
   CheckCircle2
 } from "lucide-react";
+import { scrollToSection } from "@/utils/navigation";
 
 interface FAQItem {
   id: string;
@@ -105,7 +106,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-28 px-6 relative z-10 border-t border-slate-200/50 bg-gradient-to-b from-transparent via-slate-100/30 to-transparent">
+    <section id="faq" data-section="faq" className="py-28 px-6 relative z-10 border-t border-slate-200/50 bg-gradient-to-b from-transparent via-slate-100/30 to-transparent">
       {/* Decorative ambient backdrop */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-rose-200/20 blur-[130px] rounded-full pointer-events-none -z-10" />
 
@@ -191,13 +192,14 @@ export default function FAQ() {
                 </div>
               </div>
 
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 w-full py-3.5 px-5 rounded-xl font-semibold text-sm bg-gradient-to-r from-rose-500 to-orange-500 text-white hover:from-rose-600 hover:to-orange-600 shadow-lg shadow-rose-500/20 hover:shadow-rose-500/30 transition-all duration-200 group/btn"
+              <button
+                type="button"
+                onClick={() => scrollToSection("contact")}
+                className="inline-flex items-center justify-center gap-2 w-full py-3.5 px-5 rounded-xl font-semibold text-sm bg-gradient-to-r from-rose-500 to-orange-500 text-white hover:from-rose-600 hover:to-orange-600 shadow-lg shadow-rose-500/20 hover:shadow-rose-500/30 transition-all duration-200 group/btn cursor-pointer"
               >
                 <span>Initiate Project Inquiry</span>
                 <ArrowUpRight className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-              </a>
+              </button>
             </div>
 
             {/* Quick stats mini-pill */}

@@ -365,7 +365,7 @@ export default function About() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="/#contact"
+              href="/?section=contact"
               className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-rose-500 via-orange-500 to-amber-500 hover:from-rose-600 hover:via-orange-600 hover:to-amber-600 text-white font-bold text-sm shadow-xl shadow-rose-500/25 transition-all flex items-center justify-center gap-2 group"
             >
               <span>Schedule Project Brief</span>
@@ -373,8 +373,8 @@ export default function About() {
             </Link>
 
             <Link
-              href="/#projects"
-              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-sm transition-all border border-white/15 backdrop-blur-md"
+              href="/?section=projects"
+              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-sm transition-all border border-white/15 backdrop-blur-md text-center"
             >
               View Selected Works
             </Link>

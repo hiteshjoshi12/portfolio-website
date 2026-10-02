@@ -117,7 +117,7 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="relative py-28 px-6 max-w-6xl mx-auto overflow-hidden">
+    <section id="projects" data-section="projects" className="relative py-28 px-6 max-w-6xl mx-auto overflow-hidden">
 
       {/* Background Soft Glow */}
       <div className="absolute top-1/4 right-0 w-[500px] h-[400px] bg-gradient-to-bl from-rose-400/10 via-orange-400/10 to-transparent blur-3xl rounded-full pointer-events-none -z-10" />
@@ -236,7 +236,7 @@ export default function Projects() {
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white text-[11px] font-mono text-slate-500 border border-slate-200 shadow-inner max-w-[240px] truncate">
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white text-[10px] sm:text-[11px] font-mono text-slate-500 border border-slate-200 shadow-inner max-w-[130px] sm:max-w-[240px] truncate">
                 <Lock className="w-3 h-3 text-emerald-500 shrink-0" />
                 <span className="truncate">{activeProject.liveLink.replace("https://", "")}</span>
               </div>
