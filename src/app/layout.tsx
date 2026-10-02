@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="bg-transparent text-slate-800 antialiased selection:bg-rose-500/30 selection:text-white">
+      <body className="bg-transparent text-slate-800 antialiased selection:bg-rose-500/30 selection:text-white overflow-x-hidden">
         <Portfolio3DScene />
         <Header />
         {children}

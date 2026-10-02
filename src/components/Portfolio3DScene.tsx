@@ -1,18 +1,26 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 
 export default function Portfolio3DScene() {
   const mountRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(true); // default to true to prevent SSR hydration mismatch of heavy scene, or handle it in effect
 
   useEffect(() => {
-    if (!mountRef.current) return;
+    const handleResizeCheck = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Check initially
+    handleResizeCheck();
 
-    // Completely disable 3D WebGL animation on mobile view (< 768px)
-    if (window.innerWidth < 768) {
-      return;
-    }
+    window.addEventListener("resize", handleResizeCheck);
+    return () => window.removeEventListener("resize", handleResizeCheck);
+  }, []);
+
+  useEffect(() => {
+    if (!mountRef.current || isMobile) return;
 
     // 1. SCENE & CAMERA SETUP
     const scene = new THREE.Scene();
@@ -717,12 +725,16 @@ export default function Portfolio3DScene() {
       particleMat.dispose();
       renderer.dispose();
     };
-  }, []);
+  }, [isMobile]);
 
   return (
-    <div
-      ref={mountRef}
-      className="hidden md:block fixed top-0 left-0 w-full h-full -z-10 pointer-events-none overflow-hidden bg-slate-50"
-    />
+    <>
+      {!isMobile && (
+        <div
+          ref={mountRef}
+          className="hidden md:block fixed top-0 left-0 w-full h-full -z-10 pointer-events-none overflow-hidden bg-slate-50"
+        />
+      )}
+    </>
   );
 }
