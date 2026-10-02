@@ -8,7 +8,6 @@ import {
   ArrowUpRight,
   Copy,
   Check,
-  Compass,
   Code2,
   Cpu,
   Layers
@@ -26,7 +25,6 @@ export default function Hero() {
   const [wordIndex, setWordIndex] = useState(0);
   const [copied, setCopied] = useState(false);
 
-  // Rotate headline words every 2.8 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setWordIndex((prev) => (prev + 1) % ROTATING_WORDS.length);
@@ -41,30 +39,28 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="relative pt-32 sm:pt-40 pb-20 px-6 max-w-6xl mx-auto">
+    <section id="hero" data-section="hero" className="relative pt-24 sm:pt-40 pb-16 sm:pb-24 px-4 sm:px-6 max-w-6xl mx-auto overflow-hidden">
 
       {/* Soft Ambient Light Glow on the left */}
-      <div className="absolute top-20 left-0 w-[420px] h-[360px] bg-gradient-to-tr from-rose-400/10 via-orange-400/10 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-16 left-0 w-[420px] h-[360px] bg-gradient-to-tr from-rose-400/10 via-orange-400/10 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
 
-        {/* Left Column: Clean Left-Aligned Content (7 Cols) */}
-        <div className="lg:col-span-7 flex flex-col items-start text-left">
+        {/* Content Column: Centered on mobile, Left-Aligned on desktop */}
+        <div className="lg:col-span-7 flex flex-col items-center text-center sm:items-start sm:text-left w-full">
 
           {/* Availability Pill */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/80 hover:bg-white backdrop-blur-xl border border-white/80 shadow-[0_4px_16px_-4px_rgba(244,63,94,0.12)] text-xs font-semibold text-slate-700 ring-1 ring-slate-900/5 mb-6"
+            className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/90 hover:bg-white backdrop-blur-xl border border-slate-200/80 shadow-sm text-xs font-semibold text-slate-700 mb-5 sm:mb-6"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
             </span>
             <span>Available for Freelance Projects</span>
-
-
           </motion.div>
 
           {/* Main Headline */}
@@ -72,9 +68,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl sm:text-6xl md:text-7xl font-black text-slate-900 tracking-tight leading-[1.08] mb-4"
+            className="text-4xl sm:text-6xl md:text-7xl font-black text-slate-900 tracking-tight leading-[1.08] mb-4 text-center sm:text-left"
           >
-            Crafting <br />
+            Crafting <br className="hidden sm:block" />
             <span className="relative inline-block text-slate-900">
               <span className="relative z-10">Sensory</span>
               <motion.span
@@ -89,119 +85,115 @@ export default function Hero() {
             </span>
           </motion.h1>
 
-            {/* Dynamic Rotating Role */}
-            <div className="min-h-10 flex flex-wrap items-center text-sm sm:text-xl font-bold text-slate-700 mb-6">
-              <span className="text-slate-400 font-normal mr-2">Specializing in</span>
-              <div className="relative overflow-hidden inline-flex items-center min-w-[200px] sm:min-w-[320px] h-8 sm:h-10">
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={ROTATING_WORDS[wordIndex]}
-                    initial={{ y: 20, opacity: 0, filter: "blur(4px)" }}
-                    animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-                    exit={{ y: -20, opacity: 0, filter: "blur(4px)" }}
-                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                    className="absolute font-extrabold text-slate-900 flex items-center gap-1.5"
-                  >
-                    <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-500 shrink-0" />
-                    <span className="bg-gradient-to-r from-rose-600 to-orange-500 bg-clip-text text-transparent">
-                      {ROTATING_WORDS[wordIndex]}
-                    </span>
-                  </motion.span>
-                </AnimatePresence>
-              </div>
+          {/* Dynamic Rotating Role - Strictly 1 line on mobile with whitespace-nowrap */}
+          <div className="min-h-10 flex flex-wrap items-center justify-center sm:justify-start text-xs sm:text-base md:text-lg font-bold text-slate-700 mb-5 sm:mb-6">
+            <span className="text-slate-400 font-normal mr-2">Specializing in</span>
+            <div className="relative overflow-hidden inline-flex items-center min-w-[190px] sm:min-w-[280px] h-7 sm:h-9">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={ROTATING_WORDS[wordIndex]}
+                  initial={{ y: 16, opacity: 0, filter: "blur(4px)" }}
+                  animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+                  exit={{ y: -16, opacity: 0, filter: "blur(4px)" }}
+                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute font-extrabold text-slate-900 flex items-center gap-1.5 whitespace-nowrap"
+                >
+                  <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-500 shrink-0" />
+                  <span className="bg-gradient-to-r from-rose-600 to-orange-500 bg-clip-text text-transparent text-xs sm:text-base md:text-lg">
+                    {ROTATING_WORDS[wordIndex]}
+                  </span>
+                </motion.span>
+              </AnimatePresence>
             </div>
+          </div>
 
-            {/* Bio / Value Prop */}
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="text-base sm:text-lg text-slate-600 max-w-xl mb-8 leading-relaxed font-normal"
-            >
-              I bridge the gap between creative <strong className="text-slate-900 font-semibold">3D WebGL graphics</strong> and robust <strong className="text-slate-900 font-semibold">Full-Stack architecture</strong>. Helping startups and visionary brands ship high-converting web apps.
-            </motion.p>
+          {/* Bio / Value Prop */}
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="text-sm sm:text-lg text-slate-600 max-w-xl mb-7 sm:mb-8 leading-relaxed font-normal text-center sm:text-left mx-auto sm:mx-0"
+          >
+            I bridge the gap between creative <strong className="text-slate-900 font-semibold">3D WebGL graphics</strong> and robust <strong className="text-slate-900 font-semibold">Full-Stack architecture</strong>. Helping startups and visionary brands ship high-converting web apps.
+          </motion.p>
 
-            {/* Action CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto mb-10"
-            >
-              {/* Primary Work CTA */}
+          {/* Balanced Mobile Actions Bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-3 w-full sm:w-auto mb-8 sm:mb-10"
+          >
+            {/* Dual Actions Group */}
+            <div className="grid grid-cols-2 gap-2.5 w-full sm:w-auto">
               <button
                 type="button"
                 onClick={() => scrollToSection("projects")}
-                className="group relative px-6 py-3.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs sm:text-sm tracking-wide shadow-[0_8px_20px_-4px_rgba(15,23,42,0.3)] hover:shadow-[0_12px_25px_-4px_rgba(244,63,94,0.35)] transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-2 overflow-hidden cursor-pointer"
+                className="group relative px-5 py-3 sm:py-3.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs sm:text-sm tracking-wide shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-1.5 overflow-hidden cursor-pointer"
               >
-                <span className="relative z-10 flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-rose-400 group-hover:rotate-12 transition-transform duration-300" />
-                  Explore Projects
-                  <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
-                </span>
-                <span className="absolute inset-0 bg-gradient-to-r from-rose-500/20 via-orange-500/20 to-amber-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <Sparkles className="w-3.5 h-3.5 text-rose-400 group-hover:rotate-12 transition-transform duration-300" />
+                <span>Explore Work</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-white transition-colors" />
               </button>
 
-              {/* Quick Copy Email Button */}
-              <button
-                type="button"
-                onClick={handleCopyEmail}
-                className="px-5 py-3.5 rounded-full bg-white/80 hover:bg-white backdrop-blur-xl border border-white/80 text-slate-800 font-semibold text-xs sm:text-sm shadow-[0_4px_16px_-4px_rgba(0,0,0,0.06)] ring-1 ring-slate-900/5 hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
-              >
-                {copied ? (
-                  <>
-                    <Check className="w-4 h-4 text-emerald-500 animate-bounce" />
-                    <span className="text-emerald-600 font-bold">Email Copied!</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-4 h-4 text-slate-400" />
-                    <span>Copy Email</span>
-                  </>
-                )}
-              </button>
-
-              {/* Let's Talk Link */}
               <button
                 type="button"
                 onClick={() => scrollToSection("contact")}
-                className="px-5 py-3.5 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100/60 font-semibold text-xs sm:text-sm transition-colors text-center cursor-pointer"
+                className="px-5 py-3 sm:py-3.5 rounded-full bg-gradient-to-r from-rose-500 via-orange-500 to-amber-500 hover:from-rose-600 hover:via-orange-600 hover:to-amber-600 text-white font-bold text-xs sm:text-sm tracking-wide shadow-md shadow-rose-500/20 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
               >
-                Let's Talk
+                <span>Let's Talk</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </button>
-            </motion.div>
+            </div>
 
-          {/* Minimal, Decluttered Proof Bar */}
+            {/* Quick Copy Email Button */}
+            <button
+              type="button"
+              onClick={handleCopyEmail}
+              className="w-full sm:w-auto px-5 py-3 rounded-full bg-white/90 hover:bg-white border border-slate-200/90 text-slate-800 font-semibold text-xs sm:text-sm shadow-sm hover:shadow transition-all flex items-center justify-center gap-2 cursor-pointer"
+            >
+              {copied ? (
+                <>
+                  <Check className="w-3.5 h-3.5 text-emerald-500 animate-bounce" />
+                  <span className="text-emerald-600 font-bold">Email Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-3.5 h-3.5 text-slate-400" />
+                  <span>Copy Email</span>
+                </>
+              )}
+            </button>
+          </motion.div>
+
+          {/* Minimal, Decluttered Proof Badges (Symmetrical 3-Col Dock on Mobile) */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.45 }}
-            className="flex flex-wrap items-center gap-6 pt-6 border-t border-slate-200/60 text-xs text-slate-500 font-medium"
+            className="grid grid-cols-3 gap-2 w-full pt-6 border-t border-slate-200/60 text-[11px] sm:text-xs text-slate-600 font-semibold"
           >
-            <div className="flex items-center gap-2">
-              <Code2 className="w-4 h-4 text-rose-500" />
-              <span>15+ Products Shipped</span>
+            <div className="p-2 sm:p-2.5 rounded-2xl bg-white/80 border border-slate-200/70 shadow-sm flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 text-center sm:text-left">
+              <Code2 className="w-3.5 h-3.5 text-rose-500 shrink-0" />
+              <span>15+ Products</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Cpu className="w-4 h-4 text-orange-500" />
-              <span>WebGL & Three.js 60 FPS</span>
+            <div className="p-2 sm:p-2.5 rounded-2xl bg-white/80 border border-slate-200/70 shadow-sm flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 text-center sm:text-left">
+              <Cpu className="w-3.5 h-3.5 text-orange-500 shrink-0" />
+              <span>WebGL 60 FPS</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Layers className="w-4 h-4 text-amber-500" />
-              <span>Full-Stack Next.js 16</span>
+            <div className="p-2 sm:p-2.5 rounded-2xl bg-white/80 border border-slate-200/70 shadow-sm flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 text-center sm:text-left">
+              <Layers className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+              <span>Next.js 16</span>
             </div>
           </motion.div>
 
         </div>
 
-        {/* Right Column: Open Space Reserved for the 3D Scene */}
-        <div className="lg:col-span-5 relative hidden lg:flex flex-col items-end justify-end min-h-[460px] pointer-events-none">
-
-        </div>
+        {/* Right Column: Open Space Reserved for the 3D Scene on Desktop */}
+        <div className="lg:col-span-5 relative hidden lg:flex flex-col items-end justify-end min-h-[460px] pointer-events-none" />
 
       </div>
 
     </section>
   );
 }
-

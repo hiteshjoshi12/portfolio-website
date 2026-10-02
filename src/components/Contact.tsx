@@ -115,7 +115,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" data-section="contact" className="py-28 px-6 relative z-10 border-t border-slate-200/50 bg-gradient-to-b from-transparent via-slate-100/40 to-white">
+    <section id="contact" data-section="contact" className="py-28 px-6 relative z-10 border-t border-slate-200/50 bg-gradient-to-b from-transparent via-slate-100/40 to-white overflow-hidden">
       {/* Decorative ambient lighting */}
       <div className="absolute top-1/3 left-10 w-96 h-96 bg-rose-200/20 blur-[130px] rounded-full pointer-events-none -z-10" />
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-amber-200/20 blur-[130px] rounded-full pointer-events-none -z-10" />
@@ -147,7 +147,7 @@ export default function Contact() {
           <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
             
             {/* Top Status Card */}
-            <div className="p-8 rounded-3xl bg-white/90 backdrop-blur-xl border border-slate-200/80 shadow-xl relative overflow-hidden group">
+            <div className="p-6 sm:p-8 rounded-3xl bg-white/90 backdrop-blur-xl border border-slate-200/80 shadow-xl relative overflow-hidden group">
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-2.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -268,7 +268,7 @@ export default function Contact() {
               onMouseLeave={handleMouseLeave}
               animate={{ rotateX, rotateY }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              className="p-8 md:p-10 rounded-3xl bg-white/95 backdrop-blur-2xl border border-slate-200/90 shadow-2xl relative overflow-hidden"
+              className="p-6 sm:p-8 md:p-10 rounded-3xl bg-white/95 backdrop-blur-2xl border border-slate-200/90 shadow-2xl relative overflow-hidden"
             >
               {/* Subtle top ambient glow */}
               <div className="absolute top-0 right-1/4 w-72 h-32 bg-gradient-to-r from-rose-500/10 via-orange-500/10 to-transparent blur-3xl pointer-events-none" />

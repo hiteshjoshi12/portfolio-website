@@ -174,7 +174,7 @@ export default function TechStack() {
             return (
               <div 
                 key={layer.name}
-                className="relative p-6 rounded-3xl bg-white/70 backdrop-blur-xl border border-white/80 shadow-[0_10px_30px_-6px_rgba(0,0,0,0.04)] ring-1 ring-slate-900/5"
+                className="relative p-4 sm:p-6 rounded-3xl bg-white/80 backdrop-blur-xl border border-white/80 shadow-[0_10px_30px_-6px_rgba(0,0,0,0.04)] ring-1 ring-slate-900/5"
               >
                 {/* Layer Title with animated pulse dot */}
                 <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
@@ -187,13 +187,13 @@ export default function TechStack() {
                       {layer.name}
                     </span>
                   </div>
-                  <span className="text-[11px] text-slate-400 font-medium">
+                  <span className="text-[10px] sm:text-[11px] text-slate-400 font-medium">
                     {layer.desc}
                   </span>
                 </div>
 
                 {/* Nodes inside this layer */}
-                <div className="flex flex-wrap gap-2.5">
+                <div className="flex flex-wrap gap-2 sm:gap-2.5">
                   {layerNodes.map((node) => {
                     const isSelected = activeNode.id === node.id;
                     const Icon = node.icon;
@@ -202,13 +202,13 @@ export default function TechStack() {
                         key={node.id}
                         onClick={() => setActiveNode(node)}
                         onMouseEnter={() => setActiveNode(node)}
-                        className={`group relative px-4 py-2.5 rounded-2xl flex items-center gap-2.5 transition-all duration-300 text-left cursor-pointer ${
+                        className={`group relative px-3 py-2 sm:px-4 sm:py-2.5 rounded-2xl flex items-center gap-2 sm:gap-2.5 transition-all duration-300 text-left cursor-pointer ${
                           isSelected
                             ? "bg-slate-900 text-white shadow-lg shadow-slate-900/20 scale-[1.03]"
-                            : "bg-white/80 hover:bg-white text-slate-700 hover:text-slate-900 border border-slate-200/60 shadow-sm"
+                            : "bg-white/90 hover:bg-white text-slate-700 hover:text-slate-900 border border-slate-200/60 shadow-sm"
                         }`}
                       >
-                        <div className={`w-7 h-7 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110 ${
+                        <div className={`w-6 h-6 sm:w-7 sm:h-7 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110 ${
                           isSelected 
                             ? "bg-white/10 text-white" 
                             : "bg-slate-100 text-slate-700"
@@ -236,7 +236,7 @@ export default function TechStack() {
 
         {/* Right Column: Live Holographic System Inspector & Code Terminal (5 Cols) */}
         <div className="lg:col-span-5 sticky top-28">
-          <div className="rounded-3xl bg-slate-900 text-slate-200 border border-slate-800 shadow-2xl p-6 overflow-hidden relative">
+          <div className="rounded-3xl bg-slate-900 text-slate-200 border border-slate-800 shadow-2xl p-4 sm:p-6 overflow-hidden relative">
             
             {/* Ambient terminal glow */}
             <div className="absolute top-0 right-0 w-48 h-48 bg-rose-500/10 blur-3xl pointer-events-none" />

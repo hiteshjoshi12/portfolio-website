@@ -60,7 +60,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
         
         {/* Top Pre-Footer Marquee / Big Typography Callout */}
-        <div className="relative mb-16 p-8 md:p-12 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white shadow-2xl overflow-hidden border border-slate-800">
+        <div className="relative mb-16 p-6 sm:p-8 md:p-12 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white shadow-2xl overflow-hidden border border-slate-800">
           
           {/* Subtle Ambient Light Orb inside Card */}
           <div className="absolute -top-24 -right-24 w-80 h-80 bg-rose-500/25 rounded-full blur-3xl pointer-events-none" />

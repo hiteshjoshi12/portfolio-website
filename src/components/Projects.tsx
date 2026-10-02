@@ -227,17 +227,17 @@ export default function Projects() {
             }}
             transition={{ type: "spring", stiffness: 220, damping: 25 }}
             style={{ transformStyle: "preserve-3d" }}
-            className="group relative rounded-3xl bg-white/80 backdrop-blur-2xl border border-white/90 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.12)] ring-1 ring-slate-900/5 p-3 overflow-hidden cursor-pointer"
+            className="group relative rounded-2xl sm:rounded-3xl bg-white/80 backdrop-blur-2xl border border-white/90 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.12)] ring-1 ring-slate-900/5 p-2 sm:p-3 overflow-hidden cursor-pointer"
           >
             {/* macOS Browser Chrome Bar */}
-            <div className="flex items-center justify-between px-4 py-2.5 bg-slate-100/80 backdrop-blur-md rounded-2xl mb-3 border border-slate-200/50">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-rose-400" />
-                <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+            <div className="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-2.5 bg-slate-100/80 backdrop-blur-md rounded-xl sm:rounded-2xl mb-2 sm:mb-3 border border-slate-200/50">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-rose-400" />
+                <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-amber-400" />
+                <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-emerald-400" />
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white text-[10px] sm:text-[11px] font-mono text-slate-500 border border-slate-200 shadow-inner max-w-[130px] sm:max-w-[240px] truncate">
-                <Lock className="w-3 h-3 text-emerald-500 shrink-0" />
+              <div className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-white text-[9px] sm:text-[11px] font-mono text-slate-500 border border-slate-200 shadow-inner max-w-[120px] sm:max-w-[240px] truncate">
+                <Lock className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-emerald-500 shrink-0" />
                 <span className="truncate">{activeProject.liveLink.replace("https://", "")}</span>
               </div>
               <a
@@ -247,12 +247,12 @@ export default function Projects() {
                 className="text-slate-400 hover:text-slate-900 transition-colors"
                 aria-label="Open live link in new window"
               >
-                <ExternalLink className="w-3.5 h-3.5" />
+                <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </a>
             </div>
 
             {/* Product Mockup Viewport */}
-            <div className="relative rounded-2xl overflow-hidden bg-slate-950 aspect-[16/10] flex items-center justify-center">
+            <div className="relative rounded-xl sm:rounded-2xl overflow-hidden bg-slate-900 aspect-video sm:aspect-[16/10] flex items-center justify-center">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={activeProject.id}
@@ -262,7 +262,7 @@ export default function Projects() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 1.02 }}
                   transition={{ duration: 0.4 }}
-                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-contain sm:object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 />
               </AnimatePresence>
 

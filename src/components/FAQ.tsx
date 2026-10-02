@@ -106,7 +106,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" data-section="faq" className="py-28 px-6 relative z-10 border-t border-slate-200/50 bg-gradient-to-b from-transparent via-slate-100/30 to-transparent">
+    <section id="faq" data-section="faq" className="py-28 px-6 relative z-10 border-t border-slate-200/50 bg-gradient-to-b from-transparent via-slate-100/30 to-transparent overflow-hidden">
       {/* Decorative ambient backdrop */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-rose-200/20 blur-[130px] rounded-full pointer-events-none -z-10" />
 
@@ -162,7 +162,7 @@ export default function FAQ() {
           
           {/* Left Column: Direct Consultation Card (3D floating style) */}
           <div className="lg:col-span-4 flex flex-col gap-5 sticky top-28">
-            <div className="p-7 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white border border-slate-800 shadow-2xl relative overflow-hidden group">
+            <div className="p-5 sm:p-7 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white border border-slate-800 shadow-2xl relative overflow-hidden group">
               {/* Subtle background glow */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-rose-500/20 rounded-full blur-2xl group-hover:bg-rose-500/30 transition-all duration-500 pointer-events-none" />
               
@@ -244,7 +244,7 @@ export default function FAQ() {
                       {/* Accordion Trigger Header */}
                       <button
                         onClick={() => toggleFAQ(faq.id)}
-                        className="w-full flex items-center justify-between p-6 text-left focus:outline-none transition-colors"
+                        className="w-full flex items-center justify-between p-4 sm:p-6 text-left focus:outline-none transition-colors"
                       >
                         <div className="flex items-center gap-4 pr-4">
                           <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
@@ -293,7 +293,7 @@ export default function FAQ() {
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3, ease: "easeInOut" }}
                           >
-                            <div className="px-6 pb-6 pt-2 border-t border-slate-100">
+                            <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-2 border-t border-slate-100">
                               <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-4">
                                 {faq.answer}
                               </p>

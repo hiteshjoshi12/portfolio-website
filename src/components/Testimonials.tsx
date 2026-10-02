@@ -97,7 +97,7 @@ function TestimonialCard({ item, index }: { item: Testimonial; index: number }) 
           rotateY,
         }}
         style={{ transformStyle: "preserve-3d" }}
-        className="group relative p-8 rounded-3xl bg-white/80 hover:bg-white/95 backdrop-blur-2xl border border-white/80 shadow-[0_10px_35px_-8px_rgba(0,0,0,0.06)] hover:shadow-[0_25px_50px_-12px_rgba(244,63,94,0.18)] ring-1 ring-slate-900/5 transition-all duration-300 flex flex-col justify-between h-full cursor-pointer"
+        className="group relative p-6 sm:p-8 rounded-3xl bg-white/80 hover:bg-white/95 backdrop-blur-2xl border border-white/80 shadow-[0_10px_35px_-8px_rgba(0,0,0,0.06)] hover:shadow-[0_25px_50px_-12px_rgba(244,63,94,0.18)] ring-1 ring-slate-900/5 transition-all duration-300 flex flex-col justify-between h-full cursor-pointer"
       >
         {/* Ambient Top Glow on Hover */}
         <span className="absolute top-0 left-10 right-10 h-[2px] bg-gradient-to-r from-transparent via-rose-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

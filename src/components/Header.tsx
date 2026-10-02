@@ -26,7 +26,8 @@ interface NavItem {
 
 export default function Header() {
   const pathname = usePathname();
-  const isHomePage = pathname === "/";
+  const isAboutPage = pathname?.endsWith("/about") || pathname?.endsWith("/about/");
+  const isHomePage = !isAboutPage;
 
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
@@ -69,7 +70,7 @@ export default function Header() {
     if (target) {
       setTimeout(() => {
         scrollToSection(target);
-        window.history.replaceState(null, "", "/");
+        window.history.replaceState(null, "", window.location.pathname);
       }, 300);
     }
   }, [isHomePage]);
@@ -84,11 +85,7 @@ export default function Header() {
   const handleNavClick = (link: NavItem) => {
     setIsOpen(false);
     if (link.sectionId) {
-      if (isHomePage) {
-        scrollToSection(link.sectionId);
-      } else {
-        window.location.href = `/?section=${link.sectionId}`;
-      }
+      scrollToSection(link.sectionId);
     }
   };
 
@@ -208,13 +205,7 @@ export default function Header() {
             {/* Desktop CTA Button */}
             <button
               type="button"
-              onClick={() => {
-                if (isHomePage) {
-                  scrollToSection("contact");
-                } else {
-                  window.location.href = "/?section=contact";
-                }
-              }}
+              onClick={() => scrollToSection("contact")}
               className="hidden sm:inline-flex group relative items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold tracking-wide shadow-[0_8px_20px_-4px_rgba(15,23,42,0.25)] hover:shadow-[0_10px_25px_-4px_rgba(244,63,94,0.35)] transition-all duration-300 hover:-translate-y-0.5 overflow-hidden cursor-pointer"
             >
               <span className="relative z-10 flex items-center gap-1.5">
@@ -324,11 +315,7 @@ export default function Header() {
                   type="button"
                   onClick={() => {
                     setIsOpen(false);
-                    if (isHomePage) {
-                      scrollToSection("contact");
-                    } else {
-                      window.location.href = "/?section=contact";
-                    }
+                    scrollToSection("contact");
                   }}
                   className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 via-orange-500 to-amber-500 text-white font-bold text-sm shadow-lg shadow-rose-500/20 flex items-center justify-center gap-2 transition-all active:scale-[0.98] cursor-pointer"
                 >

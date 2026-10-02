@@ -9,6 +9,11 @@ export default function Portfolio3DScene() {
   useEffect(() => {
     if (!mountRef.current) return;
 
+    // Completely disable 3D WebGL animation on mobile view (< 768px)
+    if (window.innerWidth < 768) {
+      return;
+    }
+
     // 1. SCENE & CAMERA SETUP
     const scene = new THREE.Scene();
     scene.fog = new THREE.FogExp2(0xf8fafc, 0.032);
@@ -717,7 +722,7 @@ export default function Portfolio3DScene() {
   return (
     <div
       ref={mountRef}
-      className="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none overflow-hidden bg-slate-50"
+      className="hidden md:block fixed top-0 left-0 w-full h-full -z-10 pointer-events-none overflow-hidden bg-slate-50"
     />
   );
 }

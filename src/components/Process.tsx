@@ -135,7 +135,7 @@ function ProcessCard({ step, index, isSelected, onSelect }: {
           rotateY,
         }}
         style={{ transformStyle: "preserve-3d" }}
-        className={`group relative p-7 rounded-3xl backdrop-blur-2xl border transition-all duration-300 flex flex-col justify-between h-full cursor-pointer ${
+        className={`group relative p-5 sm:p-7 rounded-3xl backdrop-blur-2xl border transition-all duration-300 flex flex-col justify-between h-full cursor-pointer ${
           isSelected
             ? "bg-white/95 border-rose-300 shadow-[0_20px_50px_-10px_rgba(244,63,94,0.22)] ring-2 ring-rose-500/20 scale-[1.02]"
             : "bg-white/75 hover:bg-white/90 border-white/80 shadow-[0_10px_35px_-8px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_45px_-10px_rgba(0,0,0,0.1)] ring-1 ring-slate-900/5"
