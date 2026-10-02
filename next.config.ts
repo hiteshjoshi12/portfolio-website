@@ -1,12 +1,12 @@
 import type { NextConfig } from "next";
 
 
-const nextConfig = {
+const nextConfig: NextConfig = {
   output: 'export',
   images: {
-    unoptimized: true, // Required for GitHub Pages since it doesn't support Next.js image optimization
+    unoptimized: true,
   },
-  basePath: '/portfolio-website',
+  basePath: '',
 };
 
 export default nextConfig;

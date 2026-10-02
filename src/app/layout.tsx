@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
+import Portfolio3DScene from "@/components/Portfolio3DScene";
 
 export const metadata: Metadata = {
   title: "Hitesh Joshi | Freelance Web Developer",
@@ -14,7 +15,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="bg-slate-50 text-slate-900 antialiased">
+      <body className="bg-transparent text-slate-800 antialiased selection:bg-rose-500/30 selection:text-white">
+        <Portfolio3DScene />
         <Header />
         {children}
       </body>
